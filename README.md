@@ -2,7 +2,8 @@
 
 Julia module for drawing Hasse diagrams of partially ordered sets.
 
-See also `SimpleGraphDrawings`.
+See also `SimpleGraphDrawings` which provides similar functionality
+for simple graphs.
 
 ## How to use
 
@@ -23,11 +24,7 @@ julia> draw(X)
 ```
 produces this:
 ![Hasse diagram of Boolean(3)](./bool3-hasse.png)
-[bool3-hasse.png]
-
-
 
 ## Acknowledgement
 
-The code
-in this module was developed by Connor Schembor.
+The code in this module was created by Connor Schembor.
