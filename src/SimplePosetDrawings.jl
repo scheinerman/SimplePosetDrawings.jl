@@ -1,13 +1,18 @@
+# This code developed by Connor Schembor
+
 module SimplePosetDrawings
 
 using SimplePosets
 using PyPlot
 
-# import SimplePosets.elements, SimplePosets.relations, SimplePosets.minimals, SimplePosets.maximals, SimplePosets.RandomPoset
+import PyPlot.draw
+import Base.show
 
-export generateHasse, draw
+export generateHasse, draw, SimplePosetDrawing
 
-MARKER_SIZE = 50
+
+const DEFAULT_MARKER_SIZE = 10
+MARKER_SIZE = DEFAULT_MARKER_SIZE
 
 """
 A `SimplePosetDrawing` is a data type representing a Hasse diagram
@@ -98,19 +103,10 @@ function generateHasse(PP::SimplePoset)
       hasseDiagram[pair[1]] = [pair[2]]
     end
   end
-  print("\n", "hasse diagram: ", hasseDiagram, "\n")
+  # print("\n", "hasse diagram: ", hasseDiagram, "\n")
   return hasseDiagram
 end
 
-p = SimplePoset(Int64)
-add!(p,1,2)
-add!(p,1,3)
-add!(p,2,4)
-add!(p,3,4)
-add!(p,5,6)
-add!(p,1,8)
-#add!(p,6,3)
-add!(p,1,4)
 
 """Creates coordinate locations for each element in the poset, and returns a coordinate dictionary
    which maps each element to its proper coordinate location"""
@@ -172,8 +168,6 @@ function createLocations(hasseDiagram::Dict)
   return coordinateDict
 end
 
-pd = SimplePosetDrawing(p)
-#print(createLocations(generateHasse(p)))
 
 function edraw(v::Vector{Float64}, w::Vector{Float64})
     plot([v[1],w[1]], [v[2],w[2]],
@@ -182,9 +176,9 @@ function edraw(v::Vector{Float64}, w::Vector{Float64})
 end
 
 
-
-`draw(X::SimplePosetDrawing)` #draws this Hasse diagram in a window.
-
+"""
+`draw(X::SimplePosetDrawing)` draws the Hasse diagram of the poset.
+"""
 function draw(X::SimplePosetDrawing)
   # code (with calls to PyPlot commands) to draw this poset drawing
   conns = X.directConnections
@@ -197,8 +191,14 @@ function draw(X::SimplePosetDrawing)
   end
   axis("off")
   axis("equal")
+  nothing
 end
-draw(pd)
-savefig("posetDrawing.png")
+
+
+
+function show(io::IO, X::SimplePosetDrawing)
+    print(io,"Drawing of $(X.P)")
+end
+
 
 end # end of module
