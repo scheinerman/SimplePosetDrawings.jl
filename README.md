@@ -5,6 +5,8 @@ Julia module for drawing Hasse diagrams of partially ordered sets.
 See also `SimpleGraphDrawings` which provides similar functionality
 for simple graphs.
 
+**Note**: This is an early version of this code. Caveat emptor.
+
 ## How to use
 
 The `SimplePosetDrawings` module is used to draw pictures of
