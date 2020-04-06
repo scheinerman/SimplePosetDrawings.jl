@@ -1,0 +1,10 @@
+name = "SimplePosetDrawings"
+uuid = "76a6b3ac-41b3-5953-9238-01592a420f77"
+
+[deps]
+Julia = "1a0f1ddf-8b1e-5966-9676-760d8c11ae45"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+SimplePosets = "b2aef97b-4721-5af9-b440-0bad754dc5ba"
+
+[compat]
+Julia = "≥ 1.0.0"
