@@ -18,7 +18,7 @@ MARKER_SIZE = DEFAULT_MARKER_SIZE
 A `SimplePosetDrawing` is a data type representing a Hasse diagram
 of a poset.
 """
-type SimplePosetDrawing
+struct SimplePosetDrawing
   P::SimplePoset
   directConnections::Array{}
   xy::Dict{Any,Vector{Float64}}
