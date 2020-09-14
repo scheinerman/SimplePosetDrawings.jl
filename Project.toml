@@ -6,4 +6,4 @@ PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 SimplePosets = "b2aef97b-4721-5af9-b440-0bad754dc5ba"
 
 [compat]
-julia = "≥ 1.0.0"
+julia = "1"
